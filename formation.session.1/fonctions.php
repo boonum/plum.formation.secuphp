@@ -208,10 +208,10 @@ function connectDb(){
 	
 		if(getIP()!= "127.0.0.1" ){
 			$confDb['driver'] = "mysql";
-			$confDb['host'] = "mysql51-66.pro";
-			$confDb['dbname']='boonumpedago';
-			$confDb['user']='boonumpedago';
-			$confDb['pwd']='rgsifI40s';
+			$confDb['host'] = "";
+			$confDb['dbname']='';
+			$confDb['user']='';
+			$confDb['pwd']='';
 		}
 		else{
 			$confDb['driver'] = "mysql";
