@@ -33,6 +33,22 @@ if( isset( $_GET['form'] ) ) {
 
 //------------------- connexion -------------------------
 
+if(isset($_POST['connexion'])) {
+	$rc = connecter_user_canonique();
+	if($rc == true){
+		$message = "Authentification réussie ... user=".$_SESSION['user'];
+	}
+	else{
+		$message = "Echec authentification !";
+	}
+}
+
+//------------------- déconnexion -----------------------
+
+if(isset($_GET['deconnexion'])) {
+	deconnecter_utilisateur();
+}
+
 
 
 //------------------- contrôle autorisation script ------

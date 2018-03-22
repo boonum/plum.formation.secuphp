@@ -272,3 +272,41 @@ function connecter_user_faille_sql(){
 			return true;
 		}
 }
+
+// -- canonique
+function connecter_user_canonique() {
+ 
+	$database = connectDb();
+ 
+	$sql = "select * from fs_user where user=?";
+ 
+	$param = array( $_POST['user'] );
+ 
+  	$sth = executeDb($database,$sql,$param);
+ 
+	$result = $sth->fetch();
+ 
+	if( $result==true 
+	     && $result['user'] == $_POST['user']
+	     && $result['pwd'] == $_POST['password'] ){
+ 
+		$_SESSION['user'] = $_POST['user'];
+		return true;	
+	}
+	else{
+		$_SESSION = array();//par précaution
+                return false;
+	}
+}
+	
+function deconnecter_utilisateur(){
+  session_destroy();
+ 
+  $_SESSION=array();
+ 
+  $params = session_get_cookie_params();
+ 
+  setcookie(session_name(), '', time() - 42000,
+              $params["path"], $params["domain"],
+              $params["secure"], $params["httponly"]);
+}
