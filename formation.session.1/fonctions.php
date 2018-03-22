@@ -208,7 +208,7 @@ function connectDb(){
 	
 		if(getIP()!= "127.0.0.1" ){
 			$confDb['driver'] = "mysql";
-			$confDb['host'] = ";
+			$confDb['host'] = "";
 			$confDb['dbname']='';
 			$confDb['user']='';
 			$confDb['pwd']='';
