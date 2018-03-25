@@ -51,7 +51,7 @@ function use_session_only_cookie(){
 	ini_set('session.use_only_cookies', 1);  // phpsessionID interdit via URL
 	ini_set('session.use_trans_sid', 0); // Éviter d'utiliser php sessionID dans l'URL si les cookies sont désactivés.
 	
-	$path=strstr($_SERVER['PHP_SELF'],"index.php",true);//par exemple $path="/2014/formation.lycée/claude/"
+	$path=strstr($_SERVER['PHP_SELF'],"index.php",true);//par exemple $path="/claude/"
 	session_set_cookie_params(0,$path);//chaque sous-répertoire du domaine dispose d'un PHPSESSID différent, par défaut path="/"
 	
 	session_start();
@@ -238,11 +238,12 @@ function connectDb(){
 *
 */	
 function executeDb( &$database, $sql, $param = array() ){
-		$sth = $database->prepare($sql);
+		
+		$sth = $database->prepare( $sql );
 		
 		$t = $sth->execute($param);
 		
-		if(!$t) {
+		if( !$t ) {
 			print( "<br>Erreur PDO::executeDb()<br>" );
 			print_r( $sth->errorInfo() );
 			die("");

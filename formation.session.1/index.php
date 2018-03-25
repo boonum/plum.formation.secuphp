@@ -13,7 +13,7 @@ include ('fonctions.php');
 session_start();
 
 //------------------- pas de message ------------------
-$message="";
+$message = "";
 
 //------------------ mémorisation script demandé --------------
 
@@ -59,6 +59,15 @@ switch ($form){
 	case "login.php" : 
 		$auto_OK = true;
 		break;
+		
+	default :
+	    if ( isset( $_SESSION["user"] )) {
+			$auto_ok = true;
+			break;
+		}
+		
+		$message = "ACCES NON AUTORISE : Veuillez vous authentifier...";
+		$form = "login.php";
 }
 ?>
 
@@ -80,7 +89,7 @@ switch ($form){
 
 	<div class='entete'>
 		<div class='titre'>
-			Sécurité des sessions PHP
+			Sécurité des sessions PHP - site OVH -
 			<?php
 		if( $message != "" ){
 			echo "<span class='message'>"

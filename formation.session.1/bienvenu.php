@@ -11,6 +11,7 @@
 if ( isset( $_SESSION["user"] )) { ?>
 
   <h3>Bienvenu(e) <?php echo $_SESSION['user'];?></h3>
+  
 <?php }  else {?>
   <h3> Vous n'êtes pas authentifié ... </h3> 
   <a style = "color : grey " href="?form=login.php&connexion=">Connexion</a>

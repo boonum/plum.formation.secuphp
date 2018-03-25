@@ -25,4 +25,8 @@ if( isset($_SESSION['myJeton'])) {
 	<li class="standard">
 		<a href="?form=bienvenu.php<?php echo "&myJeton=".$myJeton;?>">Bienvenu</a>
 	</li>
+	
+	<li class="standard">
+		<a href="?form=newInfo.php<?php echo "&myJeton=".$myJeton;?>">Infos</a>
+	</li>
 </ul>

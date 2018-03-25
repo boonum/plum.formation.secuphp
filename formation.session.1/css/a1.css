@@ -128,12 +128,13 @@ font-size: 20px;
 
 .info{
 float:left;
-margin-left:30px;
-width:800px;
+margin-left:5px;
+min-width:600px;
 border:2px #DDDDDD solid;
 margin-top:20px;
 text-align:left;
 font-size: 14px;
+background-color:#f0f0f0;
 }
 
 .baspage{
@@ -149,10 +150,12 @@ font-size: 14px;
 
 .message{
 border:2px #DDDDDD solid;
-background-color:red;
+background-color:Tomato;
 margin-top:10px;
-text-align:left;
+margin-left:50px;
+text-align:center;
 font-size: 14px;
+color : white;
 }
 
 ul{padding-left: 0px;margin-left:0px;}
