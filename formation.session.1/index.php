@@ -35,6 +35,7 @@ if( isset( $_GET['form'] ) ) {
 
 if(isset($_POST['connexion'])) {
 	$rc = connecter_user_canonique();
+	
 	if($rc == true){
 		$message = "Authentification réussie ... user=".$_SESSION['user'];
 	}
@@ -49,8 +50,6 @@ if(isset($_GET['deconnexion'])) {
 	deconnecter_utilisateur();
 }
 
-
-
 //------------------- contrôle autorisation script ------
 
 $auto_OK = false;
@@ -60,15 +59,31 @@ switch ($form){
 		$auto_OK = true;
 		break;
 		
-	default :
+	case "bienvenu.php" :
 	    if ( isset( $_SESSION["user"] )) {
-			$auto_ok = true;
+			$auto_OK = true;
 			break;
 		}
 		
-		$message = "ACCES NON AUTORISE : Veuillez vous authentifier...";
+	case "newInfo.php" :
+	    if ( isset( $_SESSION["user"] )) {
+			$auto_OK = true;
+			break;
+		}
+		
+	case "ajouterUser.php" :
+		if ( isset( $_SESSION["user"] )) {
+			$auto_OK = true;
+			break;
+		}
+	
+}
+
+if ( $auto_OK == false) {		
+		$message = "ACCES NON AUTORISE ";
 		$form = "login.php";
 }
+
 ?>
 
 <!-- - - - - - - - - - - - - AFFICHAGE ENTETE/FORM/BASPAGE - - - - - - - - - - - -->
