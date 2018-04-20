@@ -40,22 +40,6 @@ function use_session_trans_url(){
 	session_start();
 }
 
-/**
-* Stockage du SID UNIQUEMENT par cookie
-*
-* source : thbogusz@yahoo.fr
-*
-*/
-function use_session_only_cookie(){
-	ini_set('session.use_cookies', 1);       // Use cookies to store session.
-	ini_set('session.use_only_cookies', 1);  // phpsessionID interdit via URL
-	ini_set('session.use_trans_sid', 0); // Éviter d'utiliser php sessionID dans l'URL si les cookies sont désactivés.
-	
-	$path=strstr($_SERVER['PHP_SELF'],"index.php",true);//par exemple $path="/claude/"
-	session_set_cookie_params(0,$path);//chaque sous-répertoire du domaine dispose d'un PHPSESSID différent, par défaut path="/"
-	
-	session_start();
-}
 
 /**
  * autoriser()

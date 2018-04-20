@@ -1,11 +1,13 @@
 <?php
 /**
- * bienvenu.php
+ * ajouterUser.php
  *
  * @project	   formation.session
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Thierry Bogusz <thbogusz@yahoo.fr>
 */
+if ( !isset($_SESSION["user"] ) exit(0);
+
 $database=connectDb();
  
 $sql="insert into fs_user Values(null,?,?)";
